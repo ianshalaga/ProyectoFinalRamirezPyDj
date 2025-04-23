@@ -87,3 +87,15 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - [ ] Desde el perfil, crear un acceso a una vista de edición de estos datos. Agregar el cambio de password.
 - [ ] Crear una app de mensajería con todo lo necesario para que los usuarios puedan comunicarse entre sí por mensajes. Todo en esta app queda a criterio del alumno/a siempre y cuando funcione correctamente.
 - [ ] Utilizar Python puro para el proyecto final (se espera el uso de Django).
+
+<!-- ## Módulos estándar (internos) -->
+
+<!-- - [os](https://docs.python.org/3/library/os.html): este módulo ofrece una forma portátil de utilizar funcionalidades dependientes del sistema operativo. -->
+
+<!-- - [sys](https://docs.python.org/3/library/sys.html): este módulo proporciona acceso a algunas variables utilizadas o mantenidas por el intérprete y a funciones que interactúan estrechamente con él. Siempre está disponible. A menos que se indique explícitamente lo contrario, todas las variables son de solo lectura. -->
+
+<!-- - [time](https://docs.python.org/3/library/time.html): -->
+
+## Paquetes de terceros (externos)
+
+- [Django](https://www.djangoproject.com/): es un framework web de alto nivel para [Python](https://www.python.org/) que fomenta el desarrollo rápido y un diseño limpio y pragmático. Creado por desarrolladores con experiencia, se encarga de gran parte del trabajo tedioso del desarrollo web, por lo que puedes concentrarte en escribir tu aplicación sin necesidad de reinventar la rueda. Es gratuito y de código abierto.
