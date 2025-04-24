@@ -28,7 +28,7 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
 
 - [ ] NavBar
 
-  - [ ] Home (_landing page_)
+  - [x] Home (_landing page_)
   - [ ] Pages (_blogs_)
     - [ ] GET pages (_view all pages_)
     - [ ] **C**REATE page (_Add new post_)
@@ -49,24 +49,24 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
 
 Los siguientes requisitos serán parte de los criterios de evaluación para aprobar el proyecto. Si bien se menciona un modelo principal (por ejemplo, un blog), podés cambiar la temática siempre y cuando se cumplan todos los requisitos establecidos.
 
-- [ ] Entrega individual en un repositorio de GitHub.
+- [x] Entrega individual en un repositorio de GitHub.
 - [ ] **README.md** detallando el proyecto.
 - [ ] Video de un máximo de 10 minutos (freecam, OBS, filmora) que muestre el sitio web y sus funcionalidades (con o sin audio).
 - [ ] No agregar la base de datos (**db.sqlite3**) en la entrega. Debería estar en el **.gitignore**.
-- [ ] Usar herencia de templates. En el template **base** implementar la etiqueta `<nav>` de navegación que contenga los accesos que se crean necesarios para su sitio (_NavBar_).
+- [x] Usar herencia de templates. En el template **base** implementar la etiqueta `<nav>` de navegación que contenga los accesos que se crean necesarios para su sitio (_NavBar_).
 - [ ] En el **.gitignore**:
 
   - [ ] pycache
   - [ ] db.sqlite3 (no compartir la información de tu base de datos)
   - [ ] media folder (las imágenes son archivos muy pesados que no es recomendable tener en el repositorio)
-  - [ ] .venv
+  - [x] .venv
 
 - [ ] Las imágenes que sean parte del código del proyecto deberían guardarse en la carpeta **static**.
-- [ ] Existencia del archivo **requirements.txt** actualizado.
+- [x] Existencia del archivo **requirements.txt** actualizado.
 - [ ] Tener en cuenta que al manejar **forms** con imágenes hay que adaptar el template y la vista, no solo el modelo y el formulario.
 - [ ] Uso de al menos 2 Vistas Basadas en Clases (CBV).
 - [ ] Uso de al menos un **mixin** en una **CBV** y un decorador en una **view** común.
-- [ ] Una vista (view) de **inicio** / **home** (_landing page_).
+- [x] Una vista (view) de **inicio** / **home** (_landing page_).
 - [ ] Acceso a una vista (view) **"Acerca de mí"** / **"About"**.
 - [ ] Crear un modelo principal (_Blog / Post / Auto / Vendedor / Docente / etc_) que contenga los siguiente campos como mínimo: **2 Charfield**, 1 de texto enriquecido (**ckeditor**), 1 campo de imagen, 1 de fecha.
 - [ ] Vista de listado de los objetos del modelo principal (modelo a elección). En la cual cada objeto mostrará solo algunos de sus datos.
@@ -86,7 +86,7 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 
 - [ ] Desde el perfil, crear un acceso a una vista de edición de estos datos. Agregar el cambio de password.
 - [ ] Crear una app de mensajería con todo lo necesario para que los usuarios puedan comunicarse entre sí por mensajes. Todo en esta app queda a criterio del alumno/a siempre y cuando funcione correctamente.
-- [ ] Utilizar Python puro para el proyecto final (se espera el uso de Django).
+- [x] Utilizar Python puro para el proyecto final (se espera el uso de Django).
 
 <!-- ## Módulos estándar (internos) -->
 

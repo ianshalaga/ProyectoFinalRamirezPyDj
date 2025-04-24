@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Rajdhani -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font customization -->
+    <style>
+      .font-rajdhani {
+        font-family: "Rajdhani", sans-serif;
+      }
+      .text-outline {
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+          1px 1px 0 #000;
+      }
+    </style>
+
+    <!-- Favicon emoji -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🎮</text></svg>"
+    />
+
+    <title>{{ title | default:"Seyfer Studios" }}</title>
+  </head>
+
+  <body class="bg-gray-900 text-white font-sans flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-red-600 to-green-500 p-4 shadow-md">
+      <div class="container mx-auto flex items-center space-x-8">
+        <!-- <p class="text-3xl tracking-wide">🎮</p> -->
+        <h1
+          class="text-3xl font-rajdhani font-bold text-lime-400 tracking-wide text-outline"
+        >
+          Seyfer Studios
+        </h1>
+        <nav class="flex space-x-1">
+          <a
+            href="{% url 'main:index' %}"
+            class="font-semibold text-white px-3 py-1 rounded-lg hover:bg-zinc-900/50 hover:text-white transition"
+          >
+            Inicio
+          </a>
+          <span
+            class="font-semibold text-gray-400 px-3 py-1 rounded-lg bg-zinc-700/50 cursor-not-allowed"
+            title="Próximamente disponible"
+          >
+            Juegos
+          </span>
+          <a
+            href="{% url 'music_sc:music_sc' %}"
+            class="font-semibold text-white px-3 py-1 rounded-lg hover:bg-zinc-900/50 hover:text-white transition"
+          >
+            Música
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-grow container mx-auto py-10 px-4">
+      {% block main %} {% endblock main %}
+    </main>
+
+    <!-- Footer  -->
+    <footer class="bg-gray-800 text-center text-sm text-gray-400 py-4">
+      &copy; Seyfer Studios {{ now | date:"Y" }}. Todos los derechos reservados.
+    </footer>
+  </body>
+</html>
