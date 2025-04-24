@@ -1,5 +1,46 @@
 {% extends 'main/base.html' %} {% block main %}
 
-<p>Music</p>
+<section>
+  <h2 class="text-2xl font-bold text-green-400 mb-4">🎵 Música Gamer</h2>
+  <p class="text-gray-300 mb-6">
+    Explora sonidos retro, synthwave y lo-fi con un enfoque gamer.
+  </p>
+
+  <div class="flex gap-6">
+    <form action="" method="get">
+      <input
+        class="bg-gray-800 hover:bg-gray-700 rounded-xl shadow-lg p-5 mb-4 border border-green-500/30 hover:border-green-500 transition"
+        type="text"
+        type="submit"
+        name="search"
+        placeholder="Buscar..."
+      />
+    </form>
+
+    <a href="">
+      <div
+        class="bg-gray-800 p-2 rounded-xl shadow-lg hover:bg-gray-700 border border-red-500/30 hover:border-red-500 transition"
+      >
+        <h3 class="text-lg font-semibold text-red-400">
+          Agregar una nueva canción
+        </h3>
+        <p class="text-sm text-gray-400">
+          Incorpora nuevos temas a la lista musical
+        </p>
+      </div>
+    </a>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for song in songs %}
+    <div
+      class="bg-gray-800 p-4 rounded-xl shadow-lg hover:bg-gray-700 transition"
+    >
+      <h3 class="text-lg font-semibold text-green-400">{{song.duration}}</h3>
+      <p class="text-sm text-gray-400">{{song.name}}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
 
 {% endblock main %}

@@ -16,3 +16,16 @@ class IndexView(View):
             "now": timezone.now(),
         }
         return render(request, "main/index.html", context)
+
+
+class AboutView(View):
+    def dispatch(self, request, *args, **kwargs):
+        # Add logic
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        context = {
+            "title": "About Seyfer Studios",
+            "now": timezone.now(),
+        }
+        return render(request, "main/about.html", context)
