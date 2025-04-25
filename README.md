@@ -6,7 +6,7 @@ Proyecto final del curso de Python y Django en modalidad Flex de CoderHouse.
 
 En forma individual, crearás una aplicación web estilo blog programada en [Python](https://www.python.org/) y [Django](https://www.djangoproject.com/). Esta web tendrá:
 
-- [ ] **admin** (_admin.site.urls_).
+- [x] **admin** (_admin.site.urls_).
 - [ ] **perfiles** (_users profiles_).
 - [ ] **registro** (_users_).
 - [ ] **páginas** (_CRUD_).
@@ -26,10 +26,10 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
 
 ## Componentes recomendados para el proyecto
 
-- [ ] NavBar
+- [x] NavBar
 
   - [x] Home (_landing page_)
-  - [ ] Pages (_blogs_)
+  - [x] Pages (_blogs_)
     - [ ] GET pages (_view all pages_)
     - [ ] **C**REATE page (_Add new post_)
     - [ ] **R**EAD page (_Show post detail_)
@@ -50,7 +50,7 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
 Los siguientes requisitos serán parte de los criterios de evaluación para aprobar el proyecto. Si bien se menciona un modelo principal (por ejemplo, un blog), podés cambiar la temática siempre y cuando se cumplan todos los requisitos establecidos.
 
 - [x] Entrega individual en un repositorio de GitHub.
-- [ ] **README.md** detallando el proyecto.
+- [x] **README.md** detallando el proyecto.
 - [ ] Video de un máximo de 10 minutos (freecam, OBS, filmora) que muestre el sitio web y sus funcionalidades (con o sin audio).
 - [x] No agregar la base de datos (**db.sqlite3**) en la entrega. Debería estar en el **.gitignore**.
 - [x] Usar herencia de templates. En el template **base** implementar la etiqueta `<nav>` de navegación que contenga los accesos que se crean necesarios para su sitio (_NavBar_).
@@ -64,16 +64,16 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - [ ] Las imágenes que sean parte del código del proyecto deberían guardarse en la carpeta **static**.
 - [x] Existencia del archivo **requirements.txt** actualizado.
 - [ ] Tener en cuenta que al manejar **forms** con imágenes hay que adaptar el template y la vista, no solo el modelo y el formulario.
-- [ ] Uso de al menos 2 Vistas Basadas en Clases (CBV).
+- [x] Uso de al menos 2 Vistas Basadas en Clases (CBV).
 - [ ] Uso de al menos un **mixin** en una **CBV** y un decorador en una **view** común.
 - [x] Una vista (view) de **inicio** / **home** (_landing page_).
 - [x] Acceso a una vista (view) **"Acerca de mí"** / **"About"**.
-- [ ] Crear un modelo principal (_Blog / Post / Auto / Vendedor / Docente / etc_) que contenga los siguiente campos como mínimo: **2 Charfield**, 1 de texto enriquecido (**ckeditor**), 1 campo de imagen, 1 de fecha.
+- [x] Crear un modelo principal (_Blog / Post / Auto / Vendedor / Docente / etc_) que contenga los siguiente campos como mínimo: **2 Charfield**, 1 de texto enriquecido (**ckeditor**), 1 campo de imagen, 1 de fecha.
 - [ ] Vista de listado de los objetos del modelo principal (modelo a elección). En la cual cada objeto mostrará solo algunos de sus datos.
 - [ ] Mensaje que da aviso en caso de no haber ningún objeto creado o al utilizar el buscador no encontrar tampoco algún objeto.
 - [ ] Poder acceder a una vista que muestre el detalle de el objeto seleccionado.
 - [ ] Poder acceder a una vista de creación (CREATE), una de edición (UPDATE) y una de borrado de objetos (DELETE).
-- [ ] Registrar en el apartado de **admin** todos los modelos creados.
+- [x] Registrar en el apartado de **admin** todos los modelos creados.
 - [ ] Tener una **app** (accounts / cuentas / etc) para el manejo de todas las vistas relacionadas al usuario / autenticación.
 - [ ] Desarrollar las vistas para un **login**, un **logout** y un **registro** para usuarios. En este último se debe solicitar: **username**, **email** y **password**.
 - [ ] Crear una vista de perfil donde se muestran los datos del usuario:
@@ -106,6 +106,8 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - **Administration**: `/admin`
 - **Soulcalibur Music**: `/music/soulcalibur`
 - **About**: `/about`
+
+Manejo de errores: `400, 403, 404, 500`
 
 ## Entorno Virtual
 

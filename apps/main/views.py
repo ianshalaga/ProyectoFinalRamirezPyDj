@@ -29,3 +29,19 @@ class AboutView(View):
             "now": timezone.now(),
         }
         return render(request, "main/about.html", context)
+
+
+def custom404(request, exception, template_name="main/404.html"):
+    return render(request, template_name, status=404)
+
+
+def custom500(request, template_name="main/500.html"):
+    return render(request, template_name, status=500)
+
+
+def custom403(request, exception, template_name="main/403.html"):
+    return render(request, template_name, status=403)
+
+
+def custom400(request, exception, template_name="main/400.html"):
+    return render(request, template_name, status=400)
