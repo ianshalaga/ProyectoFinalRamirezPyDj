@@ -5,17 +5,17 @@ import uuid
 
 # ENUMS
 
-# class GameNameEnum(models.TextChoices):
-#     SE = "SE", _("Soul Edge")
-#     SB = "SB", _("Soul Blade")
-#     SC = "SC", _("Soulcalibur")
-#     SCII = "SCII", _("Soulcalibur II")
-#     SCIII = "SCIII", _("Soulcalibur III")
-#     SCL = "SCL", _("Soulcalibur Legends")
-#     SCIV = "SCIV", _("Soulcalibur IV")
-#     SCBD = "SCBD", _("Soulcalibur: Broken Destiny")
-#     SCV = "SCV", _("Soulcalibur V")
-#     SCVI = "SCVI", _("Soulcalibur VI")
+class GameNameEnum(models.TextChoices):
+    SE = "SE", _("Soul Edge")
+    SB = "SB", _("Soul Blade")
+    SC = "SC", _("Soulcalibur")
+    SCII = "SCII", _("Soulcalibur II")
+    SCIII = "SCIII", _("Soulcalibur III")
+    SCL = "SCL", _("Soulcalibur Legends")
+    SCIV = "SCIV", _("Soulcalibur IV")
+    SCBD = "SCBD", _("Soulcalibur: Broken Destiny")
+    SCV = "SCV", _("Soulcalibur V")
+    SCVI = "SCVI", _("Soulcalibur VI")
 
 
 class VariationTypeEnum(models.TextChoices):
@@ -32,21 +32,12 @@ class AlbumTypeEnum(models.TextChoices):
 
 
 # MODELS
-
-class Game(models.Model):
-    code = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
-    order = models.PositiveIntegerField()
-    name = models.CharField(max_length=50)  # choices=GameNameEnum.choices
-
-    def __str__(self):
-        return f"[{self.order}] {self.name}"
-
-
 class Song(models.Model):
     code = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     name = models.CharField(max_length=255)
     other_name = models.CharField(max_length=255, blank=True, null=True)
     duration = models.DurationField()
+    description = models.CharField(max_length=255, blank=True, null=True)
 
     variation_type = models.CharField(
         max_length=6,
@@ -72,13 +63,13 @@ class Album(models.Model):
     name = models.CharField(max_length=255)
     type = models.CharField(
         max_length=5, choices=AlbumTypeEnum.choices, default=AlbumTypeEnum.OST)
-    game = models.ForeignKey(
-        Game, on_delete=models.CASCADE, related_name="albums")
+    game = models.CharField(
+        max_length=50, choices=GameNameEnum.choices)
     songs = models.ManyToManyField(
         Song, through="AlbumSong", related_name="albums")
 
     def __str__(self):
-        return f"[{self.game.name}] [{self.order}] {self.name} ({self.type})"
+        return f"{self.name} ({self.type})"
 
 
 class AlbumSong(models.Model):
@@ -92,40 +83,3 @@ class AlbumSong(models.Model):
 
     def __str__(self):
         return f"{self.song_number}. {self.song.name} - {self.album.name} ({self.album.get_type_display()})"
-
-
-class GameMode(models.Model):
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
-
-class Stage(models.Model):
-    name = models.CharField(max_length=255)
-    other_name = models.CharField(max_length=255, blank=True, null=True)
-
-    def __str__(self):
-        return self.name
-
-
-class Character(models.Model):
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
-
-class Situation(models.Model):
-    description = models.TextField(blank=True, null=True)
-    song = models.ForeignKey(
-        Song, on_delete=models.CASCADE, related_name="situations")
-    character = models.ForeignKey(
-        Character, null=True, blank=True, on_delete=models.SET_NULL)
-    stage = models.ForeignKey(
-        Stage, null=True, blank=True, on_delete=models.SET_NULL)
-    game_mode = models.ForeignKey(
-        GameMode, null=True, blank=True, on_delete=models.SET_NULL)
-
-    def __str__(self):
-        return f"{self.song.name} [{self.description}]"

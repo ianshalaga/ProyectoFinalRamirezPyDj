@@ -1,0 +1,66 @@
+{% extends 'music_sc/base.html' %} {% block music_content %}
+
+<h3 class="flex justify-center text-2xl font-bold text-red-400 mb-6">
+  🎶 Songs of Soulcalibur
+</h3>
+
+<div class="flex justify-center gap-6 mb-8">
+  <form action="" method="get">
+    <input
+      class="bg-gray-800 hover:bg-gray-700 rounded-xl shadow-lg p-5 border border-green-500/30 hover:border-green-500 transition w-80"
+      type="text"
+      name="search"
+      placeholder="🔍 Buscar canciones..."
+    />
+  </form>
+
+  <a href="">
+    <div
+      class="bg-gray-800 p-2 rounded-xl shadow-lg hover:bg-gray-700 border border-red-500/30 hover:border-red-500 transition"
+    >
+      <h3 class="text-lg font-semibold text-red-400">➕🎵 Agregar canción</h3>
+    </div>
+  </a>
+</div>
+
+{# Listado de canciones #}
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {% for song in songs %}
+  <div
+    class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-gray-700 transition space-y-2 border border-gray-700"
+  >
+    <!-- Song name -->
+    <h4 class="text-xl font-bold text-green-400">{{ song.name }}</h4>
+    <p class="text-sm text-lime-400">ℹ️ {{ song.description }}</p>
+    {% if song.other_name %}
+    <p class="text-sm text-yellow-400">📝 {{ song.other_name }}</p>
+    {% endif %}
+    <!-- Game -->
+    <p class="text-sm text-blue-400">
+      🎮 {{ song.albumsong_set.first.album.get_game_display }}
+    </p>
+    <!-- Album -->
+    <p class="text-sm text-purple-400">
+      💿 {{ song.albumsong_set.first.album }}
+    </p>
+    <!-- Duration -->
+    <p class="text-sm text-gray-400">⏱️ {{ song.duration }}</p>
+    <!-- Variation Type -->
+    <p class="text-sm text-pink-400">
+      🎼 {{ song.get_variation_type_display }}
+    </p>
+    <!-- Original Song -->
+    {% if song.variation_type != "ORI" and song.original_song %}
+    <p class="text-sm text-orange-400">Basada en:</p>
+    <p class="text-sm text-orange-400">
+      🎵 {{ song.original_song.name }} 💿 {{ song.albumsong_set.first.album }}
+      🎮 {{ song.albumsong_set.first.album.get_game_display }}
+    </p>
+    {% endif %}
+  </div>
+  {% empty %}
+  <div class="text-gray-500">No hay canciones disponibles todavía. 🎵</div>
+  {% endfor %}
+</div>
+
+{% endblock music_content %}
