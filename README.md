@@ -70,7 +70,7 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - [x] Acceso a una vista (view) **"Acerca de mí"** / **"About"**.
 - [x] Crear un modelo principal (_Blog / Post / Auto / Vendedor / Docente / etc_) que contenga los siguiente campos como mínimo: **2 Charfield**, 1 de texto enriquecido (**ckeditor**), 1 campo de imagen, 1 de fecha.
 - [x] Vista de listado de los objetos del modelo principal (modelo a elección). En la cual cada objeto mostrará solo algunos de sus datos.
-- [ ] Mensaje que da aviso en caso de no haber ningún objeto creado o al utilizar el buscador no encontrar tampoco algún objeto.
+- [x] Mensaje que da aviso en caso de no haber ningún objeto creado o al utilizar el buscador no encontrar tampoco algún objeto.
 - [x] Poder acceder a una vista que muestre el detalle de el objeto seleccionado.
 - [ ] Poder acceder a una vista de creación (CREATE), una de edición (UPDATE) y una de borrado de objetos (DELETE).
 - [x] Registrar en el apartado de **admin** todos los modelos creados.

@@ -29,11 +29,19 @@ class SongListView(ListView):
     model = models.Song
     template_name = "music_sc/song_list.html"
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search = self.request.GET.get("search")
+        if search:
+            queryset = queryset.filter(name__icontains=search)
+        return queryset
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Soulcalibur Songs"
         context["now"] = timezone.now()
         context['songs'] = context['object_list']
+        context["search"] = self.request.GET.get("search", "")
         return context
 
 
