@@ -10,17 +10,17 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
 - [ ] **perfiles** (_users profiles_).
 - [ ] **registro** (_users_).
 - [ ] **páginas** (_CRUD_).
-- [ ] **formularios** (_forms_).
+- [x] **formularios** (_forms_).
 
 ## Navegación
 
 - [x] Contar con algún acceso visible (_link_) a la vista (_view_) de **"Acerca de mí"** (_About me_) donde se contará acerca del dueño de la página manejado en el **route** _about/_ (_url_).
 
-- [ ] Contar con algún acceso visible (_link_) a la vista (_view_) de **blogs** que debe alojarse en el **route** _pages/_.
+- [x] Contar con algún acceso visible (_link_) a la vista (_view_) de **blogs** que debe alojarse en el **route** _pages/_.
 
-- [ ] Cada **blog** en la página de **blogs** debe ser un botón **"Leer más"** que lleve a un enlace (_link_) a la vista (_view_) de **detalle** de la **page**. Al clickear en **"Leer más"** debe navegar al detalle de la **page** mediante un **route** _pages/<uuid:page_code>/_.
+- [x] Cada **blog** en la página de **blogs** debe ser un botón **"Leer más"** que lleve a un enlace (_link_) a la vista (_view_) de **detalle** de la **page**. Al clickear en **"Leer más"** debe navegar al detalle de la **page** mediante un **route** _pages/<uuid:page_code>/_.
 
-- [ ] Si no existe ninguna página (_blog_) mostrar, debe mostrar un **"No hay páginas aún"**.
+- [x] Si no existe ninguna página (_blog_) mostrar, debe mostrar un **"No hay páginas aún"**.
 
 - [ ] Para editar (_update_) o borrar (_delete_) pages (_blogs_) debes estar logueado (_@login_required_).
 
@@ -30,8 +30,8 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
 
   - [x] Home (_landing page_)
   - [x] Pages (_blogs_)
-    - [ ] GET pages (_view all pages_)
-    - [ ] **C**REATE page (_Add new post_)
+    - [x] GET pages (_view all pages_)
+    - [x] **C**REATE page (_Add new post_)
     - [ ] **R**EAD page (_Show post detail_)
     - [ ] **U**PDATE page (_Edit post_)
     - [ ] **D**ELETE page (_Delete post_)
@@ -69,9 +69,9 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - [x] Una vista (view) de **inicio** / **home** (_landing page_).
 - [x] Acceso a una vista (view) **"Acerca de mí"** / **"About"**.
 - [x] Crear un modelo principal (_Blog / Post / Auto / Vendedor / Docente / etc_) que contenga los siguiente campos como mínimo: **2 Charfield**, 1 de texto enriquecido (**ckeditor**), 1 campo de imagen, 1 de fecha.
-- [ ] Vista de listado de los objetos del modelo principal (modelo a elección). En la cual cada objeto mostrará solo algunos de sus datos.
+- [x] Vista de listado de los objetos del modelo principal (modelo a elección). En la cual cada objeto mostrará solo algunos de sus datos.
 - [ ] Mensaje que da aviso en caso de no haber ningún objeto creado o al utilizar el buscador no encontrar tampoco algún objeto.
-- [ ] Poder acceder a una vista que muestre el detalle de el objeto seleccionado.
+- [x] Poder acceder a una vista que muestre el detalle de el objeto seleccionado.
 - [ ] Poder acceder a una vista de creación (CREATE), una de edición (UPDATE) y una de borrado de objetos (DELETE).
 - [x] Registrar en el apartado de **admin** todos los modelos creados.
 - [ ] Tener una **app** (accounts / cuentas / etc) para el manejo de todas las vistas relacionadas al usuario / autenticación.
@@ -85,7 +85,6 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
   - [ ] Biografia / link / fecha de cumpleanios / etc.
 
 - [ ] Desde el perfil, crear un acceso a una vista de edición de estos datos. Agregar el cambio de password.
-- [ ] Crear una app de mensajería con todo lo necesario para que los usuarios puedan comunicarse entre sí por mensajes. Todo en esta app queda a criterio del alumno/a siempre y cuando funcione correctamente.
 - [x] Utilizar Python puro para el proyecto final (se espera el uso de Django).
 
 <!-- ## Módulos estándar (internos) -->
@@ -100,15 +99,20 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 
 - [Django](https://www.djangoproject.com/): es un framework web de alto nivel para [Python](https://www.python.org/) que fomenta el desarrollo rápido y un diseño limpio y pragmático. Creado por desarrolladores con experiencia, se encarga de gran parte del trabajo tedioso del desarrollo web, por lo que puedes concentrarte en escribir tu aplicación sin necesidad de reinventar la rueda. Es gratuito y de código abierto.
 
-- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/index.html):
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/index.html): es una librería de Django que ayuda a hacer formularios más bonitos y más fáciles de maquetar.
 
-- [crispy-tailwind](https://github.com/django-crispy-forms/crispy-tailwind):
+- [crispy-tailwind](https://github.com/django-crispy-forms/crispy-tailwind): es una extensión para `django-crispy-forms`. Hace que `crispy-forms` genere formularios ya adaptados a TailwindCSS.
 
 ## Routes
 
 - **Home page**: `/`
 - **Administration**: `/admin`
 - **Soulcalibur Music**: `/music/soulcalibur`
+- **Soulcalibur Song List**: `/music/soulcalibur/song/list`
+- **Soulcalibur Song Create**: `/music/soulcalibur/song/create`
+- **Soulcalibur Song Detail**: `/music/soulcalibur/song/detail/<uuid:song_code>`
+- **Soulcalibur Album List**: `/music/soulcalibur/album/list`
+- **Soulcalibur Album Create**: `/music/soulcalibur/album/create`
 - **About**: `/about`
 
 Manejo de errores: `400, 403, 404, 500`

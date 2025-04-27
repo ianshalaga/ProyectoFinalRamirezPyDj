@@ -1,0 +1,98 @@
+{% extends 'music_sc/base.html' %} {% block music_content %}
+
+<h3 class="flex justify-center text-2xl font-bold text-red-400 mb-6">
+  🎵 Song Details
+</h3>
+
+<div class="flex justify-center">
+  <div
+    class="bg-gray-800 p-8 rounded-2xl shadow-lg hover:bg-gray-700 transition space-y-4 border border-rose-500/30 hover:border-rose-500 w-full max-w-2xl"
+  >
+    <!-- Song Name -->
+    <h4 class="text-3xl font-bold text-green-400 text-center">
+      {{ song.name }}
+    </h4>
+
+    <!-- Description -->
+    {% if song.description %}
+    <p class="text-center text-lime-400 text-sm">ℹ️ {{ song.description }}</p>
+    {% endif %}
+
+    <!-- Other Name -->
+    {% if song.other_name %}
+    <p class="text-center text-yellow-400 text-sm">📝 {{ song.other_name }}</p>
+    {% endif %}
+
+    <!-- Duration -->
+    <p class="text-center text-gray-400 text-sm">⏱️ {{ song.duration }}</p>
+
+    <!-- Variation Type -->
+    <p class="text-center text-pink-400 text-sm">
+      🎼 {{ song.get_variation_type_display }}
+    </p>
+
+    <!-- Original Song (if it's a variation) -->
+    {% if song.variation_type != "ORI" and song.original_song %}
+    <div class="space-y-2">
+      <p class="text-center text-orange-400 text-sm">Basada en:</p>
+      <p class="text-center text-orange-400 text-sm">
+        🎵 {{ song.original_song.name }}
+      </p>
+      {% if song.original_song.albumsong_set.first %}
+      <p class="text-center text-orange-400 text-sm">
+        📀 {{ song.original_song.albumsong_set.first.album.name }} • 🕹 {{
+        song.original_song.albumsong_set.first.album.get_game_display }}
+      </p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Albums where this song appears -->
+    <div class="space-y-2">
+      <h5 class="text-center text-purple-400 font-semibold mt-4">
+        💿 Aparece en:
+      </h5>
+      {% for albumsong in song.albumsong_set.all %}
+      <p class="text-center text-blue-400 text-sm">
+        📀 {{ albumsong.album.name }} • 🕹 {{ albumsong.album.get_game_display }}
+      </p>
+      {% empty %}
+      <p class="text-center text-gray-500 text-sm">
+        No asociada a álbumes todavía.
+      </p>
+      {% endfor %}
+    </div>
+
+    <!-- Botones de acciones -->
+    <div class="flex justify-center gap-4 mt-6">
+      <!-- Botón de Volver -->
+      <a
+        href="{% url 'music_sc:music_sc_song_list' %}"
+        class="bg-green-500 hover:bg-green-400 text-gray-900 font-semibold py-2 px-4 rounded-xl transition shadow-lg flex items-center justify-center"
+        title="Volver al listado"
+      >
+        ⬅️
+      </a>
+
+      <!-- Botón de Editar -->
+      <a
+        href=""
+        class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-semibold py-2 px-4 rounded-xl transition shadow-lg flex items-center justify-center"
+        title="Editar canción"
+      >
+        ✏️
+      </a>
+
+      <!-- Botón de Eliminar -->
+      <a
+        href=""
+        class="bg-red-400 hover:bg-red-300 text-gray-900 font-semibold py-2 px-4 rounded-xl transition shadow-lg flex items-center justify-center"
+        title="Eliminar canción"
+      >
+        🗑️
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock music_content %}

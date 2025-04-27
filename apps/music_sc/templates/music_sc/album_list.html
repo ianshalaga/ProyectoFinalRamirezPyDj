@@ -1,0 +1,83 @@
+{% extends 'music_sc/base.html' %} {% block music_content %}
+
+<h3 class="flex justify-center text-2xl font-bold text-red-400 mb-6">
+  🎶 Albums of Soulcalibur
+</h3>
+
+<div class="flex justify-center gap-6 mb-8">
+  <form action="" method="get" class="">
+    <input
+      class="bg-gray-800 hover:bg-gray-700 rounded-xl shadow-lg p-5 border border-green-500/30 hover:border-green-500 transition w-80 h-10"
+      type="text"
+      name="search"
+      placeholder="🔍 Buscar canciones..."
+    />
+  </form>
+
+  <a href="{% url "music_sc:music_sc_album_create" %}" class="h-10">
+    <div
+      class="bg-gray-800 h-full flex items-center justify-center p-5 rounded-xl shadow-lg hover:bg-gray-700 border border-red-500/30 hover:border-red-500 transition"
+    >
+      <h3 class="text-lg font-semibold text-red-400">➕💽 Agregar álbum</h3>
+    </div>
+  </a>
+</div>
+
+{# Listado de canciones #}
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {% for album in albums %}
+  <div
+    class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-gray-700 transition space-y-2 border border-gray-700 border border-rose-500/30 hover:border-rose-500"
+  >
+    <!-- Album name -->
+    <div class="flex justify-between">
+      <h4 class="text-xl font-bold text-green-400">{{ album.name }}</h4>
+      <!-- <div>
+        <a href="" title="Ver detalles" class="hover:text-green-400 transition">
+          👁️
+        </a>
+        <a href="" title="Actualizar" class="hover:text-yellow-400 transition">
+          ✏️
+        </a>
+        <a href="" title="Eliminar" class="hover:text-red-400 transition">
+          🗑️
+        </a>
+      </div> -->
+    </div>
+    <!-- Album type -->
+    <p class="text-sm text-lime-400">ℹ️ {{ album.type }}</p>
+    <!-- Game -->
+    <p class="text-sm font-bold text-blue-400">
+      🕹 {{ album.get_game_display }}
+    </p>
+    <!-- Songs del álbum -->
+    <p class="text-neutral-50">Track's list</p>
+    <div class="space-y-1 text-purple-400 text-sm">
+      {% for albumsong in album.albumsong_set.all %}
+      <p>
+        🎵 {{ albumsong.song_number }}. {{ albumsong.song.name }}
+        <p class="pl-6 text-orange-400">
+            {% if albumsong.song.original_song %}
+            📀 {{albumsong.song.original_song.name }}, 
+            {{ albumsong.album.get_game_display }}, 
+            {{ albumsong.song.get_variation_type_display }}
+            {% endif %}
+          </p>
+        <p class="pl-6 text-lime-400">
+            {% if albumsong.song.description %}
+            ℹ️ {{ albumsong.song.description }}
+            {% endif %}
+        </p>
+      </p>
+      
+      {% empty %}
+      <p class="text-gray-500">No hay canciones en este álbum aún.</p>
+      {% endfor %}
+    </div>
+  </div>
+  {% empty %}
+  <div class="text-gray-500">No hay álbumes disponibles todavía. 🎵</div>
+  {% endfor %}
+</div>
+
+{% endblock music_content %}

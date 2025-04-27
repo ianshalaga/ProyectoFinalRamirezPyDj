@@ -14,7 +14,7 @@
     />
   </form>
 
-  <a href="" class="h-10">
+  <a href="{% url "music_sc:music_sc_song_create" %}" class="h-10">
     <div
       class="bg-gray-800 h-full flex items-center justify-center p-5 rounded-xl shadow-lg hover:bg-gray-700 border border-red-500/30 hover:border-red-500 transition"
     >
@@ -33,7 +33,7 @@
     <div class="flex justify-between">
       <h4 class="text-xl font-bold text-green-400">{{ song.name }}</h4>
       <div>
-        <a href="" title="Ver detalles" class="hover:text-green-400 transition">
+        <a href="{% url "music_sc:music_sc_song_detail" song.code %}" title="Ver detalles" class="hover:text-green-400 transition">
           👁️
         </a>
         <a href="" title="Actualizar" class="hover:text-yellow-400 transition">
@@ -55,7 +55,7 @@
     </p>
     <!-- Album -->
     <p class="text-sm text-purple-400">
-      💿 {{ song.albumsong_set.first.album }}
+      💿 {{ song.albumsong_set.first.album.name }}
     </p>
     <!-- Duration -->
     <p class="text-sm text-gray-400">⏱️ {{ song.duration }}</p>
@@ -67,9 +67,9 @@
     {% if song.variation_type != "ORI" and song.original_song %}
     <p class="text-sm text-orange-400">Basada en:</p>
     <p class="text-sm text-orange-400">
-      🎵 {{song.original_song.name}} 💿
-      {{song.original_song.albumsong_set.first.album}} 🎮
-      {{song.original_song.albumsong_set.first.album.get_game_display}}
+      🎵 {{song.original_song.name}} •
+      📀 {{song.original_song.albumsong_set.first.album.name}} •
+      🕹 {{song.original_song.albumsong_set.first.album.get_game_display}}
     </p>
     {% endif %}
   </div>

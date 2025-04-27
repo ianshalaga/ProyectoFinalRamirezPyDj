@@ -69,7 +69,7 @@ class Album(models.Model):
         Song, through="AlbumSong", related_name="albums")
 
     def __str__(self):
-        return f"{self.name} ({self.type})"
+        return f"🕹️ {self.get_game_display()} • 💽 {self.name} ({self.type})"
 
 
 class AlbumSong(models.Model):

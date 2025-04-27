@@ -4,9 +4,18 @@ from . import views
 app_name = "music_sc"
 
 urlpatterns = [
+    # Base
     path("soulcalibur/", views.MusicScView.as_view(), name="music_sc"),
-    path("soulcalibur/songs/list/",
-         views.SongListView.as_view(), name="music_sc_list"),
+    # Song
+    path("soulcalibur/song/list/",
+         views.SongListView.as_view(), name="music_sc_song_list"),
     path("soulcalibur/song/create/",
-         views.SongCreateView.as_view(), name="music_sc_create")
+         views.SongCreateView.as_view(), name="music_sc_song_create"),
+    path("soulcalibur/song/detail/<uuid:code>",
+         views.SongDetailView.as_view(), name="music_sc_song_detail"),
+    # Album
+    path("soulcalibur/album/list/",
+         views.AlbumListView.as_view(), name="music_sc_album_list"),
+    path("soulcalibur/album/create/",
+         views.AlbumCreateView.as_view(), name="music_sc_album_create"),
 ]
