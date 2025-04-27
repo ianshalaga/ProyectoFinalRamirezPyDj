@@ -9,7 +9,7 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
 - [x] **admin** (_admin.site.urls_).
 - [ ] **perfiles** (_users profiles_).
 - [ ] **registro** (_users_).
-- [ ] **páginas** (_CRUD_).
+- [x] **páginas** (_CRUD_).
 - [x] **formularios** (_forms_).
 
 ## Navegación
@@ -32,9 +32,9 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
   - [x] Pages (_blogs_)
     - [x] GET pages (_view all pages_)
     - [x] **C**REATE page (_Add new post_)
-    - [ ] **R**EAD page (_Show post detail_)
-    - [ ] **U**PDATE page (_Edit post_)
-    - [ ] **D**ELETE page (_Delete post_)
+    - [x] **R**EAD page (_Show post detail_)
+    - [x] **U**PDATE page (_Edit post_)
+    - [x] **D**ELETE page (_Delete post_)
   - [x] About (_About me_)
   - [ ] Login (_Iniciar sesión_)
   - [ ] Logout (_Cerrar sesión_)
@@ -42,8 +42,6 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
   - [ ] Profile (_User profile_)
     - [ ] READ profile (_Show user profile_)
     - [ ] UPDATE profile (_Edit user profile_)
-
-- [ ] Messages
 
 ## Requisitos base
 
@@ -72,7 +70,7 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - [x] Vista de listado de los objetos del modelo principal (modelo a elección). En la cual cada objeto mostrará solo algunos de sus datos.
 - [x] Mensaje que da aviso en caso de no haber ningún objeto creado o al utilizar el buscador no encontrar tampoco algún objeto.
 - [x] Poder acceder a una vista que muestre el detalle de el objeto seleccionado.
-- [ ] Poder acceder a una vista de creación (CREATE), una de edición (UPDATE) y una de borrado de objetos (DELETE).
+- [x] Poder acceder a una vista de creación (CREATE), una de edición (UPDATE) y una de borrado de objetos (DELETE).
 - [x] Registrar en el apartado de **admin** todos los modelos creados.
 - [ ] Tener una **app** (accounts / cuentas / etc) para el manejo de todas las vistas relacionadas al usuario / autenticación.
 - [ ] Desarrollar las vistas para un **login**, un **logout** y un **registro** para usuarios. En este último se debe solicitar: **username**, **email** y **password**.
@@ -107,13 +105,15 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 
 - **Home page**: `/`
 - **Administration**: `/admin`
+- **About**: `/about`
 - **Soulcalibur Music**: `/music/soulcalibur`
 - **Soulcalibur Song List**: `/music/soulcalibur/song/list`
 - **Soulcalibur Song Create**: `/music/soulcalibur/song/create`
 - **Soulcalibur Song Detail**: `/music/soulcalibur/song/detail/<uuid:song_code>`
+- **Soulcalibur Song Update**: `/music/soulcalibur/song/update/<uuid:song_code>`
+- **Soulcalibur Song Delete**: `/music/soulcalibur/song/delete/<uuid:song_code>`
 - **Soulcalibur Album List**: `/music/soulcalibur/album/list`
 - **Soulcalibur Album Create**: `/music/soulcalibur/album/create`
-- **About**: `/about`
 
 Manejo de errores: `400, 403, 404, 500`
 

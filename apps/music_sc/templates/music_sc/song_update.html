@@ -1,0 +1,45 @@
+{% extends 'music_sc/base.html' %} {% load crispy_forms_tags %} {% block music_content %}
+
+<h3 class="flex justify-center text-2xl font-bold text-yellow-400 mb-6">
+  ✏️🎵 Editar canción
+</h3>
+
+<div class="flex justify-center">
+  <form
+    method="post"
+    class="bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-2xl space-y-6 border border-yellow-400/30"
+  >
+    {% csrf_token %}
+
+    <div class="space-y-4">
+      <h4 class="text-green-400 text-xl font-semibold">
+        Información de la canción 🎶
+      </h4>
+      {{ song_form|crispy }}
+    </div>
+
+    <div class="space-y-4">
+      <h4 class="text-purple-400 text-xl font-semibold">
+        Información del álbum 💿
+      </h4>
+      {{ albumsong_form|crispy }}
+    </div>
+
+    <div class="flex justify-center gap-3">
+      <button
+        type="submit"
+        class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-2 px-6 rounded-xl shadow-lg transition"
+      >
+        ✏️ Actualizar
+      </button>
+      <a
+        href="{% url 'music_sc:music_sc_song_list' %}"
+        class="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-xl shadow-lg transition"
+      >
+        ❌ Cancelar
+      </a>
+    </div>
+  </form>
+</div>
+
+{% endblock music_content %}

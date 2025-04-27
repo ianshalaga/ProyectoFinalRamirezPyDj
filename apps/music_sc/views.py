@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
@@ -54,7 +54,7 @@ class SongCreateView(View):
         song_form = forms.SongForm()
         albumsong_form = forms.AlbumSongForm()
         context = {
-            "title": "Soulcalibur Add Song",
+            "title": "Soulcalibur Song Create",
             "now": timezone.now(),
             "song_form": song_form,
             "albumsong_form": albumsong_form
@@ -99,6 +99,66 @@ class SongDetailView(DetailView):
     context_object_name = "song"
     slug_field = "code"
     slug_url_kwarg = "code"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Soulcalibur Song Detail"
+        context["now"] = timezone.now()
+        return context
+
+
+class SongUpdateView(View):
+    def dispatch(self, request, *args, **kwargs):
+        # Add logic
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        song = get_object_or_404(models.Song, code=kwargs['code'])
+        song_form = forms.SongForm(instance=song)
+        albumsong_instance = song.albumsong_set.first()
+        albumsong_form = forms.AlbumSongForm(instance=albumsong_instance)
+        context = {
+            "title": "Soulcalibur Song Update",
+            "now": timezone.now(),
+            "song_form": song_form,
+            "albumsong_form": albumsong_form
+        }
+        return render(request, "music_sc/song_update.html", context)
+
+    def post(self, request, *args, **kwargs):
+        song = get_object_or_404(models.Song, code=kwargs['code'])
+        song_form = forms.SongForm(request.POST, instance=song)
+        albumsong_instance = song.albumsong_set.first()
+        albumsong_form = forms.AlbumSongForm(
+            request.POST, instance=albumsong_instance)
+
+        if song_form.is_valid() and albumsong_form.is_valid():
+            song = song_form.save()
+            albumsong = albumsong_form.save(commit=False)
+            albumsong.song = song
+            albumsong.save()
+            return redirect("music_sc:music_sc_song_list")
+
+        context = {
+            "song_form": song_form,
+            "albumsong_form": albumsong_form
+        }
+        return render(request, "music_sc/song_update.html", context)
+
+
+class SongDeleteView(DeleteView):
+    model = models.Song
+    template_name = "music_sc/song_delete.html"
+    context_object_name = "song"
+    slug_field = "code"
+    slug_url_kwarg = "code"
+    success_url = reverse_lazy("music_sc:music_sc_song_list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Soulcalibur Song Delete"
+        context["now"] = timezone.now()
+        return context
 
 
 # @@@@ ALBUM

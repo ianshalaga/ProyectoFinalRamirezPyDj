@@ -1,0 +1,47 @@
+{% extends 'music_sc/base.html' %} {% block music_content %}
+
+<h3 class="flex justify-center text-2xl font-bold text-red-400 mb-6">
+  🗑️ Confirmar Eliminación
+</h3>
+
+<div class="flex justify-center">
+  <div
+    class="bg-gray-800 p-8 rounded-2xl shadow-lg hover:bg-gray-700 transition space-y-4 border border-rose-500/30 hover:border-rose-500 w-full max-w-2xl"
+  >
+    <!-- Nombre de la canción -->
+    <h4 class="text-3xl font-bold text-green-400 text-center">
+      {{ song.name }}
+    </h4>
+
+    <!-- Mensaje de confirmación -->
+    <p class="text-center text-red-400 text-lg mt-4">
+      ¿Estás seguro que deseas eliminar esta canción? Esta acción no se puede
+      deshacer.
+    </p>
+
+    <!-- Formulario de confirmación -->
+    <form method="post" class="flex justify-center gap-4 mt-6">
+      {% csrf_token %}
+
+      <!-- Botón de Confirmar Eliminación -->
+      <button
+        type="submit"
+        class="bg-red-500 hover:bg-red-400 text-gray-900 font-semibold py-2 px-4 rounded-xl transition shadow-lg flex items-center justify-center"
+        title="Confirmar eliminación"
+      >
+        ✅ Confirmar
+      </button>
+
+      <!-- Botón de Cancelar -->
+      <a
+        href="{% url 'music_sc:music_sc_song_list' %}"
+        class="bg-gray-400 hover:bg-gray-300 text-gray-900 font-semibold py-2 px-4 rounded-xl transition shadow-lg flex items-center justify-center"
+        title="Cancelar"
+      >
+        ❌ Cancelar
+      </a>
+    </form>
+  </div>
+</div>
+
+{% endblock music_content %}

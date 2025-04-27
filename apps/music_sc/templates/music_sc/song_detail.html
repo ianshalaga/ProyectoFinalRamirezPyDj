@@ -76,7 +76,7 @@
 
       <!-- Botón de Editar -->
       <a
-        href=""
+        href="{% url 'music_sc:music_sc_song_update' song.code %}"
         class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-semibold py-2 px-4 rounded-xl transition shadow-lg flex items-center justify-center"
         title="Editar canción"
       >
@@ -85,7 +85,7 @@
 
       <!-- Botón de Eliminar -->
       <a
-        href=""
+        href="{% url 'music_sc:music_sc_song_delete' song.code %}"
         class="bg-red-400 hover:bg-red-300 text-gray-900 font-semibold py-2 px-4 rounded-xl transition shadow-lg flex items-center justify-center"
         title="Eliminar canción"
       >
