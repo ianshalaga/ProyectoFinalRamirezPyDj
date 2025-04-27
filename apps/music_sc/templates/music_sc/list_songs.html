@@ -5,18 +5,18 @@
 </h3>
 
 <div class="flex justify-center gap-6 mb-8">
-  <form action="" method="get">
+  <form action="" method="get" class="">
     <input
-      class="bg-gray-800 hover:bg-gray-700 rounded-xl shadow-lg p-5 border border-green-500/30 hover:border-green-500 transition w-80"
+      class="bg-gray-800 hover:bg-gray-700 rounded-xl shadow-lg p-5 border border-green-500/30 hover:border-green-500 transition w-80 h-10"
       type="text"
       name="search"
       placeholder="🔍 Buscar canciones..."
     />
   </form>
 
-  <a href="">
+  <a href="" class="h-10">
     <div
-      class="bg-gray-800 p-2 rounded-xl shadow-lg hover:bg-gray-700 border border-red-500/30 hover:border-red-500 transition"
+      class="bg-gray-800 h-full flex items-center justify-center p-5 rounded-xl shadow-lg hover:bg-gray-700 border border-red-500/30 hover:border-red-500 transition"
     >
       <h3 class="text-lg font-semibold text-red-400">➕🎵 Agregar canción</h3>
     </div>
@@ -27,10 +27,24 @@
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
   {% for song in songs %}
   <div
-    class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-gray-700 transition space-y-2 border border-gray-700"
+    class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-gray-700 transition space-y-2 border border-gray-700 border border-rose-500/30 hover:border-rose-500"
   >
     <!-- Song name -->
-    <h4 class="text-xl font-bold text-green-400">{{ song.name }}</h4>
+    <div class="flex justify-between">
+      <h4 class="text-xl font-bold text-green-400">{{ song.name }}</h4>
+      <div>
+        <a href="" title="Ver detalles" class="hover:text-green-400 transition">
+          👁️
+        </a>
+        <a href="" title="Actualizar" class="hover:text-yellow-400 transition">
+          ✏️
+        </a>
+        <a href="" title="Eliminar" class="hover:text-red-400 transition">
+          🗑️
+        </a>
+      </div>
+    </div>
+    <!-- Song Other Name -->
     <p class="text-sm text-lime-400">ℹ️ {{ song.description }}</p>
     {% if song.other_name %}
     <p class="text-sm text-yellow-400">📝 {{ song.other_name }}</p>
@@ -53,8 +67,9 @@
     {% if song.variation_type != "ORI" and song.original_song %}
     <p class="text-sm text-orange-400">Basada en:</p>
     <p class="text-sm text-orange-400">
-      🎵 {{ song.original_song.name }} 💿 {{ song.albumsong_set.first.album }}
-      🎮 {{ song.albumsong_set.first.album.get_game_display }}
+      🎵 {{song.original_song.name}} 💿
+      {{song.original_song.albumsong_set.first.album}} 🎮
+      {{song.original_song.albumsong_set.first.album.get_game_display}}
     </p>
     {% endif %}
   </div>

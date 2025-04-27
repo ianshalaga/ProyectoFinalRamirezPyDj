@@ -7,36 +7,22 @@
   </p>
   
   {# Barra de navegación de juegos #}
-  <div class="flex justify-center flex gap-6 mb-8">
+  <div class="flex justify-center flex gap-6 mb-4">
     <nav class="flex gap-4">
-      <a href="{% url "music_sc:music_sc_list" %}">
+      <a href="{% url "music_sc:music_sc_list" %}" class="">
         <div
-          class="bg-gray-800 p-4 rounded-xl shadow-lg hover:bg-gray-700 border border-green-500/30 hover:border-green-500 transition"
+          class="bg-gray-800 p-2 rounded-xl shadow-lg hover:bg-gray-700 border border-green-500/30 hover:border-green-500 transition"
         >
           <h3 class="text-lg font-semibold text-green-400">🎶 Songs</h3>
         </div>
       </a>
       <a href="">
         <div
-          class="bg-gray-800 p-4 rounded-xl shadow-lg hover:bg-gray-700 border border-green-500/30 hover:border-green-500 transition"
+          class="bg-gray-800 p-2 rounded-xl shadow-lg hover:bg-gray-700 border border-green-500/30 hover:border-green-500 transition"
         >
           <h3 class="text-lg font-semibold text-green-400">💿 Albums</h3>
         </div>
       </a>
-      <!-- <a href="">
-        <div
-          class="bg-gray-800 p-4 rounded-xl shadow-lg hover:bg-gray-700 border border-green-500/30 hover:border-green-500 transition"
-        >
-          <h3 class="text-lg font-semibold text-green-400">Street Fighter</h3>
-        </div>
-      </a> -->
-      <!-- <a href="">
-        <div
-          class="bg-gray-800 p-4 rounded-xl shadow-lg hover:bg-gray-700 border border-green-500/30 hover:border-green-500 transition"
-        >
-          <h3 class="text-lg font-semibold text-green-400">Tekken</h3>
-        </div>
-      </a> -->
     </nav>
   </div>
   {% block music_content %} {% endblock music_content %}
