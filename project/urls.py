@@ -27,5 +27,6 @@ handler400 = main_views.custom400
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("apps.main.urls")),
+    path("user/", include("apps.user.urls")),
     path("music/", include("apps.music_sc.urls")),
 ]

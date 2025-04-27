@@ -1,0 +1,55 @@
+from django.utils import timezone
+from django.shortcuts import render, redirect
+from django.views import View
+from django.contrib.auth import logout
+from django.contrib.auth.views import LoginView
+from django.urls import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import CreateView
+from . import forms
+
+# Create your views here.
+
+
+class CustomLoginView(LoginView):
+    template_name = 'user/login.html'
+    next_page = reverse_lazy('main:index')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Seyfer Studios Login"
+        context["now"] = timezone.now()
+        return context
+
+
+class CustomLogoutView(View):
+    template_name = 'user/logout.html'
+    success_url = reverse_lazy('main:index')
+
+    def dispatch(self, request, *args, **kwargs):
+        # Add logic
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        context = {
+            "title": "Seyfer Studios Logout",
+            "now": timezone.now(),
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        logout(request)
+        return redirect(self.success_url)
+
+
+class CustomSignupView(CreateView):
+    # form_class = UserCreationForm
+    form_class = forms.CustomUserCreationForm
+    template_name = 'user/signup.html'
+    success_url = reverse_lazy('user:login')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Seyfer Studios Register"
+        context["now"] = timezone.now()
+        return context

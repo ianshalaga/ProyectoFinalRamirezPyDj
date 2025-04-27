@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "crispy_tailwind",
     "apps.main",
     "apps.music_sc",
+    "apps.user",
 ]
 
 MIDDLEWARE = [

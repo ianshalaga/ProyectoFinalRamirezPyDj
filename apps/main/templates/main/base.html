@@ -44,28 +44,57 @@
         >
           🎮 Seyfer Studios
         </h1>
-        <nav class="flex space-x-1">
-          <!-- 🏡 Inicio -->
-          <a
-            href="{% url 'main:index' %}"
-            class="font-semibold text-white px-3 py-1 rounded-lg hover:bg-zinc-900/50 hover:text-white transition"
-          >
-            🏡 Inicio
-          </a>
-          <!-- 🎮 Juegos -->
-          <span
-            class="font-semibold text-gray-400 px-3 py-1 rounded-lg bg-zinc-700/50 cursor-not-allowed"
-            title="Próximamente disponible"
-          >
-            🎮 Juegos
-          </span>
-          <!-- 🎵 Música -->
-          <a
-            href="{% url 'music_sc:music_sc' %}"
-            class="font-semibold text-white px-3 py-1 rounded-lg hover:bg-zinc-900/50 hover:text-white transition"
-          >
-            🎵 Música
-          </a>
+        <nav class="grid grid-cols-2 flex-1 space-x-1">
+          <div class="flex justify-left space-x-2">
+            <!-- 🏡 Inicio -->
+            <a
+              href="{% url 'main:index' %}"
+              class="font-semibold text-white px-3 py-1 rounded-lg hover:bg-zinc-900/50 hover:text-white transition"
+            >
+              🏡 Inicio
+            </a>
+            <!-- 🎮 Juegos -->
+            <span
+              class="font-semibold text-gray-400 px-3 py-1 rounded-lg bg-zinc-700/50 cursor-not-allowed"
+              title="Próximamente disponible"
+            >
+              🎮 Juegos
+            </span>
+            <!-- 🎵 Música -->
+            <a
+              href="{% url 'music_sc:music_sc' %}"
+              class="font-semibold text-white px-3 py-1 rounded-lg hover:bg-zinc-900/50 hover:text-white transition"
+            >
+              🎵 Música
+            </a>
+          </div>
+
+          <div class="flex items-center justify-end space-x-2">
+            {% if user.is_authenticated %}
+            <!-- 🔓 Botón de Logout -->
+            <a
+              href="{% url 'user:logout' %}"
+              class="font-semibold text-white px-3 py-1 rounded-lg hover:bg-red-600 transition"
+            >
+              🔓 Cerrar sesión ({{ user.username }})
+            </a>
+            {% else %}
+            <!-- 🔑 Botón de Login -->
+            <a
+              href="{% url 'user:login' %}"
+              class="font-semibold text-white px-3 py-1 rounded-lg hover:bg-lime-600 transition"
+            >
+              🔑 Iniciar sesión
+            </a>
+            <!-- 📝 Botón de Signup -->
+            <a
+              href="{% url 'user:signup' %}"
+              class="font-semibold text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition"
+            >
+              📝 Registrarse
+            </a>
+            {% endif %}
+          </div>
         </nav>
       </div>
     </header>

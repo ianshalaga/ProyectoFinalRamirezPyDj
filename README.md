@@ -8,7 +8,7 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
 
 - [x] **admin** (_admin.site.urls_).
 - [ ] **perfiles** (_users profiles_).
-- [ ] **registro** (_users_).
+- [x] **registro** (_users_).
 - [x] **páginas** (_CRUD_).
 - [x] **formularios** (_forms_).
 
@@ -36,9 +36,9 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
     - [x] **U**PDATE page (_Edit post_)
     - [x] **D**ELETE page (_Delete post_)
   - [x] About (_About me_)
-  - [ ] Login (_Iniciar sesión_)
-  - [ ] Logout (_Cerrar sesión_)
-  - [ ] Signup (_CREATE user_)
+  - [x] Login (_Iniciar sesión_)
+  - [x] Logout (_Cerrar sesión_)
+  - [x] Signup (_CREATE user_)
   - [ ] Profile (_User profile_)
     - [ ] READ profile (_Show user profile_)
     - [ ] UPDATE profile (_Edit user profile_)
@@ -72,7 +72,7 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - [x] Poder acceder a una vista que muestre el detalle de el objeto seleccionado.
 - [x] Poder acceder a una vista de creación (CREATE), una de edición (UPDATE) y una de borrado de objetos (DELETE).
 - [x] Registrar en el apartado de **admin** todos los modelos creados.
-- [ ] Tener una **app** (accounts / cuentas / etc) para el manejo de todas las vistas relacionadas al usuario / autenticación.
+- [x] Tener una **app** (accounts / cuentas / etc) para el manejo de todas las vistas relacionadas al usuario / autenticación.
 - [ ] Desarrollar las vistas para un **login**, un **logout** y un **registro** para usuarios. En este último se debe solicitar: **username**, **email** y **password**.
 - [ ] Crear una vista de perfil donde se muestran los datos del usuario:
 

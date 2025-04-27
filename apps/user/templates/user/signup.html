@@ -1,0 +1,20 @@
+{% extends "main/base.html" %} {% load crispy_forms_tags %} {% block main %}
+<div class="max-w-md mx-auto bg-gray-800 p-8 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-6 text-center">📝 Crear una cuenta</h2>
+  <form method="post">
+    {% csrf_token %} {{ form | crispy }}
+    <button
+      type="submit"
+      class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition mt-4"
+    >
+      Registrarse
+    </button>
+  </form>
+  <p class="text-center text-gray-400 text-sm mt-4">
+    ¿Ya tienes una cuenta?
+    <a href="{% url 'user:login' %}" class="text-lime-400 hover:text-lime-500"
+      >Inicia sesión aquí</a
+    >.
+  </p>
+</div>
+{% endblock %}
