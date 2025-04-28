@@ -1,31 +1,47 @@
-{% extends 'main/base.html' %} {% block main %}
+{% extends 'main/base.html' %} {% load styles %}
+{% block main %}
 
 <section>
-  <h2 class="flex justify-center text-2xl font-bold text-green-400 mb-4">⚔ Soulcalibur Music 🎵</h2>
-  <p class="flex justify-center text-gray-300 mb-6">
-    Explora sonidos retro, synthwave y lo-fi con un enfoque gamer.
+  <h2 class="flex justify-center text-3xl font-extrabold text-green-500 mb-4 tracking-wider">
+    ⚔️ Soulcalibur: The Legend Lives On 🎶
+  </h2>
+  <p class="flex justify-center text-lg text-gray-300 mb-8 text-center px-6">
+    ¡Embárcate en una odisea de acero, honor y pasión musical que atraviesa los siglos! 🌟
   </p>
-  
+
   {# Barra de navegación de juegos #}
-  <div class="flex justify-center flex gap-6 mb-4">
+  <div class="flex justify-center flex-wrap gap-6 mb-8">
     <nav class="flex gap-4">
-      <a href="{% url "music_sc:music_sc_song_list" %}" class="">
+      <a href="{% url "music_sc:music_sc_song_list" %}">
         <div
-          class="bg-gray-800 p-2 rounded-xl shadow-lg hover:bg-gray-700 border border-green-500/30 hover:border-green-500 transition"
+          class="{% sub_nav_button_link %}"
         >
-          <h3 class="text-lg font-semibold text-green-400">🎶 Songs</h3>
+          <h3 class="text-xl font-bold text-green-300">🎵 Songs</h3>
         </div>
       </a>
       <a href="{% url "music_sc:music_sc_album_list" %}">
         <div
-          class="bg-gray-800 p-2 rounded-xl shadow-lg hover:bg-gray-700 border border-green-500/30 hover:border-green-500 transition"
+          class="{% sub_nav_button_link %}"
         >
-          <h3 class="text-lg font-semibold text-green-400">💿 Albums</h3>
+          <h3 class="text-xl font-bold text-green-300">💿 Albums</h3>
         </div>
       </a>
     </nav>
   </div>
-  {% block music_content %} {% endblock music_content %}
+
+  {% block music_content %}
+  <div class="max-w-3xl mx-auto bg-gray-800/60 p-8 rounded-2xl shadow-lg text-center text-gray-300 space-y-4 mb-12">
+    <p class="text-lg leading-relaxed">
+      De las profundidades del tiempo surge una sinfonía de poder: los himnos que acompañan a <span class="text-green-400 font-semibold">caballeros, guerreros y almas en busca de redención</span>.
+    </p>
+    <p class="text-lg leading-relaxed">
+      Cada melodía forja la memoria de un combate épico, cada acorde vibra con la eterna lucha entre la <em>Soul Edge</em> y la <em>Soul Calibur</em>.
+    </p>
+    <p class="text-lg leading-relaxed font-bold text-green-300">
+      ¡Revive las batallas más legendarias a través de su música inmortal! 🎻🔥
+    </p>
+  </div>
+  {% endblock music_content %}
 </section>
 
 {% endblock main %}

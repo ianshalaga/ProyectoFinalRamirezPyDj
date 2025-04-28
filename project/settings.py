@@ -41,11 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "crispy_forms",
-    "crispy_tailwind",
-    "apps.main",
-    "apps.music_sc",
-    "apps.user",
+    "crispy_forms",  # Beauty Forms Style
+    "crispy_tailwind",  # Beauty Forms Style
+    "apps.main",  # Main
+    "apps.music_sc",  # Soulcalibur Music
+    "apps.user",  # User
+    "apps.css",  # CSS Styles
 ]
 
 MIDDLEWARE = [

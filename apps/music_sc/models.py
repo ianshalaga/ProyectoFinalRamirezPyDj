@@ -33,7 +33,8 @@ class AlbumTypeEnum(models.TextChoices):
 
 # MODELS
 class Song(models.Model):
-    code = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    code = models.UUIDField(
+        default=uuid.uuid4, editable=False, unique=True)
     name = models.CharField(max_length=255)
     other_name = models.CharField(max_length=255, blank=True, null=True)
     duration = models.DurationField()
@@ -58,7 +59,8 @@ class Song(models.Model):
 
 
 class Album(models.Model):
-    code = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    code = models.UUIDField(
+        default=uuid.uuid4, editable=False, unique=True)
     order = models.PositiveIntegerField()
     name = models.CharField(max_length=255)
     type = models.CharField(
