@@ -46,12 +46,14 @@
         <a href="{% url "music_sc:music_sc_song_detail" song.code %}" title="Ver detalles" class="hover:text-green-400 transition">
           👁️
         </a>
-        <a href="{% url "music_sc:music_sc_song_update" song.code %}" title="Actualizar" class="hover:text-yellow-400 transition">
-          ✏️
-        </a>
-        <a href="{% url "music_sc:music_sc_song_delete" song.code %}" title="Eliminar" class="hover:text-red-400 transition">
-          🗑️
-        </a>
+        {% if user.is_authenticated %}
+          <a href="{% url "music_sc:music_sc_song_update" song.code %}" title="Actualizar" class="hover:text-yellow-400 transition">
+            ✏️
+          </a>
+          <a href="{% url "music_sc:music_sc_song_delete" song.code %}" title="Eliminar" class="hover:text-red-400 transition">
+            🗑️
+          </a>
+        {% endif %}
       </div>
     </div>
     <!-- Song Other Name -->

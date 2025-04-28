@@ -4,8 +4,11 @@ from django.views import View
 from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from . import forms
+from . import models
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -42,13 +45,38 @@ class CustomLogoutView(View):
 
 
 class CustomSignupView(CreateView):
-    # form_class = UserCreationForm
     form_class = forms.CustomUserCreationForm
     template_name = 'user/signup.html'
     success_url = reverse_lazy('user:login')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        avatar_image = self.request.FILES.get('avatar')
+        if avatar_image:
+            models.Avatar.objects.create(user=self.object, image=avatar_image)
+        return response
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Seyfer Studios Register"
         context["now"] = timezone.now()
+        return context
+
+
+class UserDetailView(LoginRequiredMixin, DetailView):
+    model = User
+    template_name = 'user/user_detail.html'
+    context_object_name = 'user_obj'
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            context['avatar'] = self.request.user.avatar.image.url
+        except:
+            context['avatar'] = None
+        context['title'] = "User Profile"
+        context['now'] = timezone.now()
         return context

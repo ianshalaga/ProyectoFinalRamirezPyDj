@@ -1,0 +1,28 @@
+{% extends "main/base.html" %} {% load styles %} {% block main %}
+
+<div
+  class="flex gap-8 justify-center items-center max-w-2xl mx-auto {% sub_nav_button_link %}"
+>
+  <div>
+    <h1 class="text-3xl font-bold mb-4">{{ user_obj.username }}</h1>
+    <p><strong>Email:</strong> {{ user_obj.email }}</p>
+    <p><strong>First Name:</strong> {{ user_obj.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ user_obj.last_name }}</p>
+  </div>
+
+  <div class="flex justify-center items-center">
+    {% if avatar %}
+    <img
+      src="{{ avatar }}"
+      alt="User Avatar"
+      class="w-32 h-32 rounded-full mx-auto border-2 border-green-400"
+    />
+    {% else %}
+    <p class="text-gray-500 mb-4">No avatar uploaded.</p>
+    {% endif %}
+  </div>
+
+  <!-- <p class="text-sm text-gray-400 mt-4">Profile viewed at {{ now }}</p> -->
+</div>
+
+{% endblock main %}

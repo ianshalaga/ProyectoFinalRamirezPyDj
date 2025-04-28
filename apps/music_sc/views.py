@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, DetailView, DeleteView
 from django.utils import timezone
+from django.contrib.auth.mixins import LoginRequiredMixin
 from . import models
 from . import forms
 
@@ -107,7 +108,7 @@ class SongDetailView(DetailView):
         return context
 
 
-class SongUpdateView(View):
+class SongUpdateView(LoginRequiredMixin, View):
     def dispatch(self, request, *args, **kwargs):
         # Add logic
         return super().dispatch(request, *args, **kwargs)
@@ -146,7 +147,7 @@ class SongUpdateView(View):
         return render(request, "music_sc/song_update.html", context)
 
 
-class SongDeleteView(DeleteView):
+class SongDeleteView(LoginRequiredMixin, DeleteView):
     model = models.Song
     template_name = "music_sc/song_delete.html"
     context_object_name = "song"

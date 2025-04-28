@@ -7,7 +7,7 @@ Proyecto final del curso de Python y Django en modalidad Flex de CoderHouse.
 En forma individual, crearás una aplicación web estilo blog programada en [Python](https://www.python.org/) y [Django](https://www.djangoproject.com/). Esta web tendrá:
 
 - [x] **admin** (_admin.site.urls_).
-- [ ] **perfiles** (_users profiles_).
+- [x] **perfiles** (_users profiles_).
 - [x] **registro** (_users_).
 - [x] **páginas** (_CRUD_).
 - [x] **formularios** (_forms_).
@@ -22,7 +22,7 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
 
 - [x] Si no existe ninguna página (_blog_) mostrar, debe mostrar un **"No hay páginas aún"**.
 
-- [ ] Para editar (_update_) o borrar (_delete_) pages (_blogs_) debes estar logueado (_@login_required_).
+- [x] Para editar (_update_) o borrar (_delete_) pages (_blogs_) debes estar logueado (_@login_required_).
 
 ## Componentes recomendados para el proyecto
 
@@ -39,8 +39,8 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
   - [x] Login (_Iniciar sesión_)
   - [x] Logout (_Cerrar sesión_)
   - [x] Signup (_CREATE user_)
-  - [ ] Profile (_User profile_)
-    - [ ] READ profile (_Show user profile_)
+  - [x] Profile (_User profile_)
+    - [x] READ profile (_Show user profile_)
     - [ ] UPDATE profile (_Edit user profile_)
 
 ## Requisitos base
@@ -52,18 +52,18 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - [ ] Video de un máximo de 10 minutos (freecam, OBS, filmora) que muestre el sitio web y sus funcionalidades (con o sin audio).
 - [x] No agregar la base de datos (**db.sqlite3**) en la entrega. Debería estar en el **.gitignore**.
 - [x] Usar herencia de templates. En el template **base** implementar la etiqueta `<nav>` de navegación que contenga los accesos que se crean necesarios para su sitio (_NavBar_).
-- [ ] En el **.gitignore**:
+- [x] En el **.gitignore**:
 
-  - [ ] pycache
+  - [x] pycache
   - [x] db.sqlite3 (no compartir la información de tu base de datos)
-  - [ ] media folder (las imágenes son archivos muy pesados que no es recomendable tener en el repositorio)
+  - [x] media folder (las imágenes son archivos muy pesados que no es recomendable tener en el repositorio)
   - [x] .venv
 
 - [ ] Las imágenes que sean parte del código del proyecto deberían guardarse en la carpeta **static**.
 - [x] Existencia del archivo **requirements.txt** actualizado.
-- [ ] Tener en cuenta que al manejar **forms** con imágenes hay que adaptar el template y la vista, no solo el modelo y el formulario.
+- [x] Tener en cuenta que al manejar **forms** con imágenes hay que adaptar el template y la vista, no solo el modelo y el formulario.
 - [x] Uso de al menos 2 Vistas Basadas en Clases (CBV).
-- [ ] Uso de al menos un **mixin** en una **CBV** y un decorador en una **view** común.
+- [x] Uso de al menos un **mixin** en una **CBV** y un decorador en una **view** común.
 - [x] Una vista (view) de **inicio** / **home** (_landing page_).
 - [x] Acceso a una vista (view) **"Acerca de mí"** / **"About"**.
 - [x] Crear un modelo principal (_Blog / Post / Auto / Vendedor / Docente / etc_) que contenga los siguiente campos como mínimo: **2 Charfield**, 1 de texto enriquecido (**ckeditor**), 1 campo de imagen, 1 de fecha.
@@ -73,14 +73,14 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - [x] Poder acceder a una vista de creación (CREATE), una de edición (UPDATE) y una de borrado de objetos (DELETE).
 - [x] Registrar en el apartado de **admin** todos los modelos creados.
 - [x] Tener una **app** (accounts / cuentas / etc) para el manejo de todas las vistas relacionadas al usuario / autenticación.
-- [ ] Desarrollar las vistas para un **login**, un **logout** y un **registro** para usuarios. En este último se debe solicitar: **username**, **email** y **password**.
-- [ ] Crear una vista de perfil donde se muestran los datos del usuario:
+- [x] Desarrollar las vistas para un **login**, un **logout** y un **registro** para usuarios. En este último se debe solicitar: **username**, **email** y **password**.
+- [x] Crear una vista de perfil donde se muestran los datos del usuario:
 
-  - [ ] Nombre
-  - [ ] Apellido
-  - [ ] Email
-  - [ ] Avatar
-  - [ ] Biografia / link / fecha de cumpleanios / etc.
+  - [x] Nombre
+  - [x] Apellido
+  - [x] Email
+  - [x] Avatar
+  - [x] Biografia / link / fecha de cumpleanios / etc.
 
 - [ ] Desde el perfil, crear un acceso a una vista de edición de estos datos. Agregar el cambio de password.
 - [x] Utilizar Python puro para el proyecto final (se espera el uso de Django).
@@ -100,6 +100,8 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/index.html): es una librería de Django que ayuda a hacer formularios más bonitos y más fáciles de maquetar.
 
 - [crispy-tailwind](https://github.com/django-crispy-forms/crispy-tailwind): es una extensión para `django-crispy-forms`. Hace que `crispy-forms` genere formularios ya adaptados a TailwindCSS.
+
+- [Pillow](https://pillow.readthedocs.io/en/stable/): es una librería de [Python](https://www.python.org/) para el manejo de imágenes.
 
 ## Routes
 

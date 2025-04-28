@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler400, handler500, handler404, handler403
 from apps.main import views as main_views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 handler404 = main_views.custom404
 handler500 = main_views.custom500
@@ -30,3 +33,7 @@ urlpatterns = [
     path("user/", include("apps.user.urls")),
     path("music/", include("apps.music_sc.urls")),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

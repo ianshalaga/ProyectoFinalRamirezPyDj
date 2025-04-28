@@ -1,7 +1,9 @@
 {% extends "main/base.html" %} {% load crispy_forms_tags %} {% block main %}
-<div class="max-w-md mx-auto bg-gray-800 p-8 rounded-lg shadow-md">
+<div
+  class="max-w-md mx-auto bg-gray-900 border border-lime-400 text-lime-400 p-8 rounded-lg shadow-md"
+>
   <h2 class="text-2xl font-bold mb-6 text-center">📝 Crear una cuenta</h2>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %} {{ form | crispy }}
     <button
       type="submit"

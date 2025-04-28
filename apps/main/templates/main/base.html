@@ -45,7 +45,7 @@
           🎮 Seyfer Studios
         </h1>
         <nav class="grid grid-cols-2 flex-1 space-x-1">
-          <div class="flex justify-left space-x-2">
+          <div class="flex justify-left items-center space-x-2">
             <!-- 🏡 Inicio -->
             <a
               href="{% url 'main:index' %}"
@@ -71,6 +71,19 @@
 
           <div class="flex items-center justify-end space-x-2">
             {% if user.is_authenticated %}
+            <!-- 👤 Botón de Perfil -->
+            <a
+              href="{% url 'user:user_detail' %}"
+              class="flex items-center justify-center font-semibold text-white px-3 py-1 rounded-lg hover:bg-neutral-400 transition"
+            >
+              {% if user.avatar and user.avatar.image %}
+              <img
+                src="{{ user.avatar.image.url }}"
+                alt="User Avatar"
+                class="w-12 h-12 rounded-full mx-auto border-2 border-green-400"
+              />
+              {% else %} 👤 {% endif %}
+            </a>
             <!-- 🔓 Botón de Logout -->
             <a
               href="{% url 'user:logout' %}"
