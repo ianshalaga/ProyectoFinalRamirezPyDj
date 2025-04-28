@@ -41,7 +41,7 @@ En forma individual, crearás una aplicación web estilo blog programada en [Pyt
   - [x] Signup (_CREATE user_)
   - [x] Profile (_User profile_)
     - [x] READ profile (_Show user profile_)
-    - [ ] UPDATE profile (_Edit user profile_)
+    - [x] UPDATE profile (_Edit user profile_)
 
 ## Requisitos base
 
@@ -59,7 +59,7 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
   - [x] media folder (las imágenes son archivos muy pesados que no es recomendable tener en el repositorio)
   - [x] .venv
 
-- [ ] Las imágenes que sean parte del código del proyecto deberían guardarse en la carpeta **static**.
+- [x] Las imágenes que sean parte del código del proyecto deberían guardarse en la carpeta **static**.
 - [x] Existencia del archivo **requirements.txt** actualizado.
 - [x] Tener en cuenta que al manejar **forms** con imágenes hay que adaptar el template y la vista, no solo el modelo y el formulario.
 - [x] Uso de al menos 2 Vistas Basadas en Clases (CBV).
@@ -82,12 +82,12 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
   - [x] Avatar
   - [x] Biografia / link / fecha de cumpleanios / etc.
 
-- [ ] Desde el perfil, crear un acceso a una vista de edición de estos datos. Agregar el cambio de password.
+- [x] Desde el perfil, crear un acceso a una vista de edición de estos datos. Agregar el cambio de password.
 - [x] Utilizar Python puro para el proyecto final (se espera el uso de Django).
 
-<!-- ## Módulos estándar (internos) -->
+## Módulos estándar (internos)
 
-<!-- - [os](https://docs.python.org/3/library/os.html): este módulo ofrece una forma portátil de utilizar funcionalidades dependientes del sistema operativo. -->
+- [os](https://docs.python.org/3/library/os.html): este módulo ofrece una forma portátil de utilizar funcionalidades dependientes del sistema operativo.
 
 <!-- - [sys](https://docs.python.org/3/library/sys.html): este módulo proporciona acceso a algunas variables utilizadas o mantenidas por el intérprete y a funciones que interactúan estrechamente con él. Siempre está disponible. A menos que se indique explícitamente lo contrario, todas las variables son de solo lectura. -->
 
@@ -116,6 +116,13 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 - **Soulcalibur Song Delete**: `/music/soulcalibur/song/delete/<uuid:song_code>`
 - **Soulcalibur Album List**: `/music/soulcalibur/album/list`
 - **Soulcalibur Album Create**: `/music/soulcalibur/album/create`
+- **User Login**: `/user/login`
+- **User Logout**: `/user/logout`
+- **User Signup**: `/user/signup`
+- **User Profile**: `/user/detail`
+- **User Update**: `/user/update`
+- **User Advance Password Change**: `/user/password_change`
+- **User Advance Password Change Done**: `/user/password_change/done`
 
 Manejo de errores: `400, 403, 404, 500`
 

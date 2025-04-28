@@ -29,3 +29,28 @@ class AvatarForm(forms.ModelForm):
     class Meta:
         model = models.Avatar
         fields = ['image']
+
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField(required=True)
+    first_name = forms.CharField(max_length=30, required=False)
+    last_name = forms.CharField(max_length=30, required=False)
+    # password = forms.CharField(
+    #     label='Nueva contraseña',
+    #     widget=forms.PasswordInput,
+    #     required=False,
+    #     help_text='Dejar en blanco si no quieres cambiarla.'
+    # )
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name')
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        # new_password = self.cleaned_data.get('password')
+        # if new_password:
+        #     user.set_password(new_password)
+        if commit:
+            user.save()
+        return user
