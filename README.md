@@ -2,6 +2,8 @@
 
 Proyecto final del curso de Python y Django en modalidad Flex de CoderHouse.
 
+- [Video](https://youtu.be/1iUFytXbo_Q)
+
 ## Consigna
 
 En forma individual, crearás una aplicación web estilo blog programada en [Python](https://www.python.org/) y [Django](https://www.djangoproject.com/). Esta web tendrá:
@@ -49,7 +51,7 @@ Los siguientes requisitos serán parte de los criterios de evaluación para apro
 
 - [x] Entrega individual en un repositorio de GitHub.
 - [x] **README.md** detallando el proyecto.
-- [ ] Video de un máximo de 10 minutos (freecam, OBS, filmora) que muestre el sitio web y sus funcionalidades (con o sin audio).
+- [x] Video de un máximo de 10 minutos (freecam, OBS, filmora) que muestre el sitio web y sus funcionalidades (con o sin audio).
 - [x] No agregar la base de datos (**db.sqlite3**) en la entrega. Debería estar en el **.gitignore**.
 - [x] Usar herencia de templates. En el template **base** implementar la etiqueta `<nav>` de navegación que contenga los accesos que se crean necesarios para su sitio (_NavBar_).
 - [x] En el **.gitignore**:
